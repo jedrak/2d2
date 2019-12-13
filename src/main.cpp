@@ -296,11 +296,13 @@ int main( int argc, char* args[] )
                 //Update game objects
                 player1->update();
                 player2->update();
+
+                //std::cout<<coll1->getX()<<" "<<coll2->getY()<<std::endl;
                 coll1->update();
                 coll2->update();
                 //std::cout<<"player1: "<<coll1->getX()<<" "<<coll1->getY()<<" "<<coll1->getX()+coll1->getW()<<" "<<coll1->getY()+coll1->getH()<<std::endl;
                 //std::cout<<"player2: "<<coll2->getX()<<" "<<coll2->getY()<<" "<<coll2->getX()+coll2->getW()<<" "<<coll2->getY()+coll2->getH()<<std::endl;
-                coll1->checkCollision(coll2);
+                //coll1->checkCollision(coll2);
                 //coll2->checkCollision(coll1);
 
 
@@ -319,6 +321,7 @@ int main( int argc, char* args[] )
                 }
 
                 if(coll1->checkCollision(finish) || coll2->checkCollision(finish)){
+                    std::cout<<"finish";
                     quit = true;
                 }
 

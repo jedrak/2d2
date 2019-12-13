@@ -28,7 +28,7 @@ void MazeNode::render(SDL_Renderer *renderer, int r, int g, int b, int a) {
     for(int i =0; i < 3; i++) {
         for(int j = 0; j < 3; j++){
             if(walls[i][j]) {
-                SDL_Rect fillRect = {this->getX()+i*15, this->getY()+j*15, 10, 10};
+                SDL_Rect fillRect = {this->getX()+i*15, this->getY()+j*15, 15, 15};
                 SDL_RenderFillRect(renderer, &fillRect);
 
 
@@ -68,7 +68,7 @@ int MazeNode::addColliders() {
         for(int j = 0; j < 3; j++){
             if(walls[i][j]) {
                 SDL_Rect fillRect = {this->getX()+i*15, this->getY()+j*15, 10, 10};
-                colls.push_back(new Collider(fillRect.x-fillRect.w/2, fillRect.y+fillRect.h/2, Shape::rect, false, this, 5, 5));
+                colls.push_back(new Collider(fillRect.x, fillRect.y, Shape::rect, false, this, 15, 15));
                 //std::cout<<" x "<<colls.back()->getX()<<" y "<<colls.back()->getY()<<std::endl;
             }else{
                 //std::cout<<"tu nic nie ma "<<this->getX()+i*15<<" "<<this->getY()+j*15<<std::endl;
